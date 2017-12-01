@@ -98,8 +98,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainActivity.cs" />
-    <Compile Include="QuotesService.cs" />
+    <Compile Include="Features\Quotes\IQuotesPresenter.cs" />
+    <Compile Include="Features\Quotes\IQuotesService.cs" />
+    <Compile Include="Features\Quotes\IQuotesView.cs" />
+    <Compile Include="Features\Quotes\QuotesActivity.cs" />
+    <Compile Include="Features\Quotes\QuotesPresenter.cs" />
+    <Compile Include="Features\Quotes\QuotesService.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -110,7 +114,7 @@
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Main.axml">
+    <AndroidResource Include="Resources\layout\Quotes.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\values\Strings.xml" />
