@@ -7,6 +7,7 @@ namespace MVPPattern.Features.Todos
     public interface ITodosPresenter
     {
         List<Todo> Items { get; set; }
+        int? FirstVisibleItemPosition { get; set; }
         void OnShowTodosButtonClicked();
         void AddRandomTodo();
         void OnTodoClicked(Todo e);

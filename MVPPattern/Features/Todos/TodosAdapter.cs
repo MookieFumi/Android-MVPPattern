@@ -18,6 +18,13 @@ namespace MVPPattern.Features.Todos
             TodoClicked?.Invoke(this, player);
         }
 
+        public event EventHandler<Todo> TodoLongClicked;
+
+        protected virtual void OnTodoLongClicked(Todo player)
+        {
+            TodoLongClicked?.Invoke(this, player);
+        }
+
         public TodosAdapter(ITodosView view, ITodosPresenter presenter)
         {
             _presenter = presenter;
@@ -36,20 +43,35 @@ namespace MVPPattern.Features.Todos
         {
             //Setup and inflate your layout here
             var itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.TodosListRow, parent, false);
-            return new TodoHolder(itemView, position =>
+            return new TodoHolder(itemView, OnClick(), OnLongClick());
+        }
+
+        private Action<int> OnClick()
+        {
+            return position =>
             {
                 var todo = _presenter.Items.ElementAt(position);
                 OnTodoClicked(todo);
-            });
+            };
+        }
+
+        private Action<int> OnLongClick()
+        {
+            return (position) =>
+            {
+                var todo = _presenter.Items.ElementAt(position);
+                OnTodoLongClicked(todo);
+            };
         }
 
         public override int ItemCount => _presenter.Items.Count;
 
         public class TodoHolder : RecyclerView.ViewHolder
         {
-            public TodoHolder(View view, Action<int> onClick) : base(view)
+            public TodoHolder(View view, Action<int> onClick, Action<int> onLongClick) : base(view)
             {
                 view.Click += (sender, e) => onClick(base.AdapterPosition);
+                view.LongClick += (sender, e) => onLongClick(base.AdapterPosition);
 
                 Name = view.FindViewById<TextView>(Resource.Id.name);
             }
@@ -57,5 +79,4 @@ namespace MVPPattern.Features.Todos
             public TextView Name { get; }
         }
     }
-
 }
