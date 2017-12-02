@@ -5,7 +5,7 @@ using Android.Widget;
 
 namespace MVPPattern.Features.Quotes
 {
-    [Activity(Label = "MVPPattern", MainLauncher = true)]
+    [Activity]
     public class QuotesActivity : Activity, IQuotesView
     {
         private TextView _textView;

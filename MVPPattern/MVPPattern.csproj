@@ -96,6 +96,12 @@
     <Reference Include="Xamarin.Android.Support.Vector.Drawable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xamarin.Android.Support.Vector.Drawable.26.1.0.1\lib\MonoAndroid80\Xamarin.Android.Support.Vector.Drawable.dll</HintPath>
     </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.RecyclerView">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.RecyclerView.26.1.0.1\lib\MonoAndroid80\Xamarin.Android.Support.v7.RecyclerView.dll</HintPath>
+    </Reference>
+    <Reference Include="Refractored.Fab">
+      <HintPath>..\packages\Refractored.FloatingActionButton.2.1.0\lib\MonoAndroid10\Refractored.Fab.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Features\Quotes\IQuotesPresenter.cs" />
@@ -106,6 +112,14 @@
     <Compile Include="Features\Quotes\QuotesService.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Features\Todos\TodosActivity.cs" />
+    <Compile Include="Features\Todos\ITodosService.cs" />
+    <Compile Include="Features\Todos\TodosService.cs" />
+    <Compile Include="Features\Todos\Todo.cs" />
+    <Compile Include="Features\Todos\TodosAdapter.cs" />
+    <Compile Include="Features\Todos\ITodosView.cs" />
+    <Compile Include="Features\Todos\ITodosPresenter.cs" />
+    <Compile Include="Features\Todos\TodosPresenter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -118,6 +132,14 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\values\Strings.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_add.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_add.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_add.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_add.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_add.png" />
+    <AndroidResource Include="Resources\layout\Todos.axml" />
+    <AndroidResource Include="Resources\values\colors.xml" />
+    <AndroidResource Include="Resources\layout\TodosListRow.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
@@ -126,6 +148,7 @@
     <Folder Include="Resources\mipmap-xhdpi\" />
     <Folder Include="Resources\mipmap-xxhdpi\" />
     <Folder Include="Resources\mipmap-xxxhdpi\" />
+    <Folder Include="Features\Todos\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Annotations.26.1.0.1\build\MonoAndroid80\Xamarin.Android.Support.Annotations.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Annotations.26.1.0.1\build\MonoAndroid80\Xamarin.Android.Support.Annotations.targets')" />
@@ -164,4 +187,5 @@
 		<Target Name="AfterBuild">
 		</Target>
 	-->
+  <Import Project="..\packages\Xamarin.Android.Support.v7.RecyclerView.26.1.0.1\build\MonoAndroid80\Xamarin.Android.Support.v7.RecyclerView.targets" Condition="Exists('..\packages\Xamarin.Android.Support.v7.RecyclerView.26.1.0.1\build\MonoAndroid80\Xamarin.Android.Support.v7.RecyclerView.targets')" />
 </Project>
